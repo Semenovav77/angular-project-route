@@ -1,0 +1,22 @@
+.card {
+  padding: .5rem 1rem;
+  border: 1px dashed #ccc;
+  .buttons {
+    margin-bottom: .5rem;
+  }
+  .text {
+    font-size: 1.5rem;
+    .red {
+      color: red
+    }
+    .blue {
+      color: blue
+    }
+    .yellow {
+      color: yellow
+    }
+  }
+  .done {
+    text-decoration: line-through;
+  }
+}

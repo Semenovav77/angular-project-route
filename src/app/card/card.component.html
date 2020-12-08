@@ -1,0 +1,53 @@
+<div class="card">
+  <h2 [ngStyle]="{
+    color: card.title.length < 5 ? 'black' : 'green',
+    fontWeight: card.title.length < 7 ? 'normal' : 'bold'
+  }"><!--{{index}}--> {{ card.title }}</h2>
+ <!-- <div class="text">
+    <p [ngClass]="{
+      blue: textColor === 'blue',
+      red: textColor === 'red',
+      yellow: textColor === 'yellow'
+    }"> {{text}}</p>
+  </div> -->
+  <div class="text">
+    <p
+      [class.blue]="textColor === 'blue'"
+      [class.red]="textColor === 'red'"
+      [class.yellow]="textColor === 'yellow'"
+    > {{card.text}}</p>
+  </div>
+  <strong>Number: {{number}}</strong>
+  <em>{{array}} </em>
+  <pre>{{ obj | json}}</pre>
+  <p>{{ getinfo()}}</p>
+  <div>
+    <img [src]="imgUrl">
+  </div>
+  <button [disabled]="disabled">Submit</button>
+  <div class="buttons">
+    <button>Change tittle</button>
+  </div>
+  <div class="buttons">
+    <button (click)="textColor = 'red'">Set Red</button>
+    <button (click)="textColor = 'blue'">Set Blue</button>
+    <button (click)="textColor = 'yellow'">Set Yellow</button>
+  </div>
+  <div class="buttons">
+    <button (click)="changeTitle()">Change tittle</button>
+    <button (click)="card.title = 'inline Title'">Change tittle inline</button>
+  </div>
+<!--  <div>
+    <input type="text" #myInput (input)="inputHandler($event)" [value]="title">
+  </div>-->
+  <div class="date">
+    {{date | date: 'dd MMMM yyyy': null: 'ru'}}
+  </div>
+  <div>
+    <input type="checkbox" (change)="onChangeCheckbox(card.id)" [checked]="card.completed">
+    <span [class.done]="card.completed">
+      {{card.text}}
+    </span>
+    <input type="text" [(ngModel)]="card.title" (ngModelChange)="changeHandler()">
+  </div>
+</div>
